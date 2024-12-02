@@ -90,8 +90,10 @@
       <div class="product-grid">
         <% products.forEach(product => { %>
           <div class="product">
-            <div class="badge">Nyhet</div>
-            <!-- Dynamisk länk till produktsidan med hjälp av slug -->
+            <% if (product.name === "Gråa Jeans") { %>
+              <div class="badge">Nyhet</div>
+            <% } %>
+            
             <a href="/products/<%= product.slug %>">
               <img src="/stylesheets/bilder/<%= product.image %>" alt="<%= product.name %>">
             </a>

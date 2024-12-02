@@ -1,37 +1,33 @@
 var express = require("express");
 var router = express.Router();
 
-let products = [
-  // Exempel på produkter, kan vara tomt initialt
-  {
-    name: "Svart T-shirt",
-    sku: "AAA111",
-    price: 199,
-    brand: "Levis",
-    image: "/stylesheets/bilder/svart-tshirt.jpg",
-    description: "En bekväm svart t-shirt.",
-  },
-  {
-    name: "Vit T-shirt",
-    sku: "BBB111",
-    price: 199,
-    brand: "Levis",
-    image: "/stylesheets/bilder/vit-tshirt.jpg",
-    description: "En enkel vit t-shirt.",
-  },
-];
+// Temporär array för att lagra produkter i minnet
+const products = [];
 
-// GET: Hämta produkter
-router.get("/products", (req, res) => {
-  res.json(products);
+// Rutt för att rendera administratörsvyn
+router.get('/products', (req, res) => {
+  res.render('admin'); // Renderar admin.ejs
+});
+
+// GET: Hämta alla produkter (API för att visa i tabellen)
+router.get('/products/list', (req, res) => {
+  res.json(products); // Returnerar alla produkter som JSON
+});
+
+// Visa formuläret för att lägga till en ny produkt
+router.get('/products/new', (req, res) => {
+  res.render('newProduct'); // Rendera newProduct.ejs
 });
 
 // POST: Lägg till ny produkt
 router.post("/products", (req, res) => {
-  const { name, sku, price, brand, image, description } = req.body;
-  const newProduct = { name, sku, price, brand, image, description };
+  const { namn, sku, pris, brand, image, description } = req.body;
+  const newProduct = { namn, sku, pris, brand, image, description };
   products.push(newProduct);
-  res.status(201).json(newProduct);
+  res.status(201).json(newProduct); // Skickar tillbaka den skapade produkten som JSON
 });
+
+
+
 
 module.exports = router;
