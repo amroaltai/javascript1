@@ -1,0 +1,56 @@
+<!-- views/newProduct.ejs -->
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ny produkt</title>
+    <link rel="stylesheet" href="/stylesheets/newProduct.css" />
+  </head>
+  <body>
+    <div class="container">
+        <!-- Header som täcker toppen -->
+        <header>
+            <h1>Administration</h1>
+        </header>
+
+        <div class="content">
+            <!-- Sidomeny som täcker vänstersidan -->
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="/admin/products">Produkter</a></li>
+                </ul>
+            </aside>
+
+            <main class="main">
+              <section class="product-form">
+                <h2>Ny produkt</h2>
+                <form id="addProductForm">
+                  <label for="namn">Namn</label>
+                  <input type="text" id="namn" name="namn" required>
+        
+                  <label for="description">Beskrivning</label>
+                  <textarea id="description" name="description"></textarea>
+        
+                  <label for="image">Bild (URL)</label>
+                  <input type="text" id="image" name="image">
+        
+                  <label for="brand">Märke</label>
+                  <input type="text" id="brand" name="brand">
+        
+                  <label for="sku">SKU</label>
+                  <input type="text" id="sku" name="sku" required>
+        
+                  <label for="pris">Pris</label>
+                  <input type="number" id="pris" name="pris" required>
+        
+                  <button type="submit" class="nyprodukt-btn">Lägg till</button>
+                </form>
+              </section>
+            </main>
+    </div>
+
+    <script src="/stylesheets/newProduct.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,5 @@
+-- database: ./produkter.db
+
+SELECT * FROM produkter;
+
+DELETE FROM produkter WHERE id = 4;
